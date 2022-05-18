@@ -30,6 +30,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Snack Bar'),
         backgroundColor: Colors.amberAccent,
+        
       ),
       body: const MySnackBar(),
       // body : Center(
@@ -61,6 +62,4 @@ class Home extends StatelessWidget {
       ),
     );
   }
-
-
 } // End
