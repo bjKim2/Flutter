@@ -54,8 +54,6 @@ class Home extends StatelessWidget {
                   bottomLeft: Radius.circular(40),
                 )
               ),
-
-                
             ),
             ListTile(
               onTap: (() {
