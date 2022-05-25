@@ -36,7 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   late bool _switch; // switch status
   late String _lampSizeStatus; // Image Size Status
   
-  
   @override
   void initState() {
     super.initState();
@@ -47,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _buttonName = "Image 확대";
     _switch = true;
     _lampSizeStatus = 'small';
-
   }
 
   @override
@@ -118,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _lampImage = _switch ? 'images/lamp_on.png' : 'images/lamp_off.png';
   }
 
+  
   decisionLampSize(){
     setState(() {
       if(_lampSizeStatus == 'small'){

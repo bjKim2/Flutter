@@ -93,6 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     }
 
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('절대색감 $_level/25 레벨'),
