@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -35,6 +36,12 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isLoading = true; // 로딩중 중간에 뺑뻉이 도는 거 
   String siteName = 'www.daum.net';
   String siteName2 = 'www.naver.com';
+
+  @override
+  void initState() {
+    if (Platform.isAndroid)  WebView.platform = AndroidWebView();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
