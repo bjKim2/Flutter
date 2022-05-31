@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FutureBuilder<WebViewController>(
-        future: _controller.future,
+        future: _controller.future, 
         builder: (BuildContext context, AsyncSnapshot<WebViewController> controller){
           if(controller.hasData){//컨트롤러가 돌아갈 데이터가 있다면
             return FloatingActionButton(

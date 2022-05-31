@@ -3,7 +3,6 @@ import 'package:teambmi_tabbar_app/ah/bmi_result.dart';
 import 'package:teambmi_tabbar_app/ah/screen.dart';
 import 'package:teambmi_tabbar_app/eon/bmiinsert.dart';
 import 'package:teambmi_tabbar_app/eon/bmiresult.dart';
-import 'package:teambmi_tabbar_app/eun%20/main.dart';
 import 'package:teambmi_tabbar_app/home.dart';
 import 'package:teambmi_tabbar_app/kweon/calPage.dart';
 import 'package:teambmi_tabbar_app/kweon/resultPage.dart';
@@ -36,8 +35,7 @@ class MyApp extends StatelessWidget {
         //sung
         '/sung' :(context) => const FirstPage(),
         '/2' :(context) => const SecondPage(),
-        //eun
-        '/eun' :(context) => const eun(),
+
                 
       },
       initialRoute: '/',

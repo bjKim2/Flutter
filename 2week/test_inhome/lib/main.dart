@@ -14,19 +14,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:image_picker_platform_interface/image_picker_platform_interface.dart';
-
-export 'package:image_picker_platform_interface/image_picker_platform_interface.dart'
-    show
-        kTypeImage,
-        kTypeVideo,
-        ImageSource,
-        CameraDevice,
-        LostData,
-        LostDataResponse,
-        PickedFile,
-        XFile,
-        RetrieveType;
 
 /// Provides an easy way to pick an image/video from the image library,
 /// or to take a picture/video with the camera.
@@ -411,7 +398,6 @@ class _CameraExampleState extends State<CameraExample> {
   // 비동기 처리를 통해 카메라와 갤러리에서 이미지를 가져온다.
   Future getImage(ImageSource imageSource) async {
     final image = await picker.pickImage(source: imageSource);
-
     setState(() {
       _image = File(image!.path); // 가져온 이미지를 _image에 저장
     });

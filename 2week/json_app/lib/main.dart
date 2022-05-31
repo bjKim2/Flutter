@@ -142,31 +142,14 @@ class _HomeState extends State<Home> {
   // ---functions
   Future<bool> getJSONData() async { // Future 안적어도 되지만 적는게 async라 보기에 좋다. 
     //async 로 비동기 함수
-    //var url = Uri.parse('http://localhost:8080/Flutter/student_query_flutter.jsp');
     var url = Uri.parse('https://zeushahn.github.io/Test/student2.json');
-    //var url = Uri.parse('https://raw.githubusercontent.com/zeushahn/Test/main/student2.json');
-
     var response = await http.get(url); // build 가 끝날 때까지 기다려라
     var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-
     // 한글화 하면서 json 파일 디코드하기
     List result = dataConvertedJSON['results'];
-
-    setState(() {
-      data.addAll(result);
-      for(int i = 0 ; i <=1 ; i++){
-        data[i].forEach((key, value) { 
-          keys.add(key);
-          values.add(value);
-        });
-      }
-    });
-
-    //print(response.body);
-    print(keys);
-    print(values);
-
     //get 방식은 암호화시켜서 압축시키기 떄문에 post는 잘안쓴다. // 보통 웹에서만 post를 씀
     return true;
   }
 }// End
+
+//    var url = Uri.parse('http://localhost:8080/Flutter/student_query_flutter.jsp');

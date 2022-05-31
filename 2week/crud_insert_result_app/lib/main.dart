@@ -142,15 +142,11 @@ class _HomeState extends State<Home> {
       'http://localhost:8080/Flutter/student_insert_return_flutter.jsp?code=$code&name=$name&dept=$dept&phone=$phone'
     );
     var response = await http.get(url);
-
     setState(() {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
-
       result = dataConvertedJSON["result"];
-
       if(result == "OK"){
         _showDialog(context);
-
       }else if(result == "ERROR"){
         errorSnackBar(context);
       }

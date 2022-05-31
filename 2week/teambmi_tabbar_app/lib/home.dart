@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teambmi_tabbar_app/ah/screen.dart';
 import 'package:teambmi_tabbar_app/eon/home.dart';
-import 'package:teambmi_tabbar_app/eun%20/main.dart';
 import 'package:teambmi_tabbar_app/kweon/startPage.dart';
 import 'package:teambmi_tabbar_app/sung/first.dart';
 
@@ -21,7 +20,7 @@ class _HomeState extends State<Home>
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 5, vsync: this); // length 탭 수 ,vsync 쓸 페이지 (main이라 this)
+    controller = TabController(length: 4, vsync: this); // length 탭 수 ,vsync 쓸 페이지 (main이라 this)
   }
 
   @override
@@ -41,7 +40,7 @@ class _HomeState extends State<Home>
       body: TabBarView(
         controller:  controller, 
         children: const [
-          kteHome(), StartPage(),First(),FirstPage(),eun()
+          kteHome(), StartPage(),First(),FirstPage()
         ],
       ),
       bottomNavigationBar: Container(
@@ -79,13 +78,7 @@ class _HomeState extends State<Home>
               ),
               text: 'sung',
             ),
-            Tab(
-              icon: Icon(Icons.looks_5,
-              color:  Colors.red,
-              
-              ),
-              text: 'eun',
-            ),
+
           ],
         ),
       )
