@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<XFile>? _imageFileList;
+  XFile? file2;
 
   void _setImageFileListFromFile(XFile? value) {
     _imageFileList = value == null ? null : <XFile>[value];
@@ -83,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       final XFile? file = await _picker.pickVideo(
           source: source, maxDuration: const Duration(seconds: 10));
       await _playVideo(file);
+      file2 = file;
     } else if (isMultiImage) {
       await _displayPickImageDialog(context!,
           (double? maxWidth, double? maxHeight, int? quality) async {
@@ -242,7 +246,8 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           IconButton(
             onPressed: () {
-                            
+              sendFile(_imageFileList![0].path);
+              //sendFile(file2!.path);
             },
             icon: Icon(Icons.abc),
           ),
@@ -419,6 +424,25 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         });
   }
+  sendFile(String path) async{
+    
+
+    var uri = Uri.parse('http://192.168.0.3:8080/Flutter/test.jsp');
+      var request = http.MultipartRequest('POST', uri);
+        request.fields['user'] = 'nweiz@google.com';
+        request.files.add(await http.MultipartFile.fromPath(
+            'upload',path,
+            ));
+      var response = await request.send();
+      var dataConvertedJSON = json.decode(await response.stream.bytesToString());
+      // 한글화 하면서 json 파일 디코드하기
+      String result = dataConvertedJSON['result'];
+      print(result);
+      print(path);
+      if (response.statusCode == 200) print('Uploaded!');
+      
+  }
+
 }
 
 typedef OnPickImageCallback = void Function(
@@ -472,4 +496,7 @@ class AspectRatioVideoState extends State<AspectRatioVideo> {
       return Container();
     }
   }
+  // functions
+
+
 }
